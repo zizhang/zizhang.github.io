@@ -20,6 +20,10 @@ $( document ).ready(function() {
 	$('#container').append('<p>u = ' + u + '</p>');
 	$('#container').append('<p>jb = ' + jb + '</p>');
 	$('#container').append('<p>mid = ' + mid + '</p>');
+
+	var xmlString = constructXMLString(j, e, l, u, jb, mid);
+
+	$('#container').append('<p>' + xmlString + '</p>');
 });
 
 var getUrlParameter = function getUrlParameter(sParam) {
@@ -36,6 +40,25 @@ var getUrlParameter = function getUrlParameter(sParam) {
         }
     }
 };
+
+function constructXMLString(jobId, emailAddr, listId, urlId, jobBatchId, memberId, dollarAmount) {
+	var resultXML = '';
+	resultXML += '<system><system_name>tracking</system_name><action>conversion</action>';
+	resultXML += '<member_id>' + memberId + '</member_id>';
+	resultXML += '<job_id>' + jobId + '</job_id>';
+	resultXML += '<email>' + emailAddr + '</email>';
+	resultXML += '<list>' + listId + '</list>';
+	resultXML += '<original_link_id>' + urlId + '</original_link_id>';
+	resultXML += '<BatchID>' + jobBatchId + '</BatchID>';
+	resultXML += '<conversion_link_id>1</conversion_link_id>';
+	resultXML += '<link_alias>Wine Bottle 1</link_alias>';
+	resultXML += '<link_alias>3</link_alias>';
+	resultXML += '<data_set><data amt="' + dollarAmount + '" unit="Dollars" accumulate="true"/>';
+	resultXML += '</data_set></system>';
+
+	return resultXML;
+}
+
 </script>
 </head>
 <body>
