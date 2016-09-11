@@ -1,18 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Zi's POC</title>
+<title>Traction on Demand SFMC POC</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
 <script type="text/javascript">
 $( document ).ready(function() {
     console.log("Ready!");
-    var param1 = getUrlParameter('zi');
-	var param2 = getUrlParameter('zhang');
+    var j = getUrlParameter('j');
+	var e = getUrlParameter('e');
+	var l = getUrlParameter('l');
+	var u = getUrlParameter('u');
+	var jb = getUrlParameter('jb');
+	var mid = getUrlParameter('mid');
 
-	$('#container').append('<p>' + param1 + ' ' + param2 + '</p>');
-	console.log('1: ' + param1);
-	console.log('2: ' + param2);
+	$('#container').append('<p>j = ' + j + '</p>');
+	$('#container').append('<p>e = ' + e + '</p>');
+	$('#container').append('<p>l = ' + l + '</p>');
+	$('#container').append('<p>u = ' + u + '</p>');
+	$('#container').append('<p>jb = ' + jb + '</p>');
+	$('#container').append('<p>mid = ' + mid + '</p>');
 });
 
 var getUrlParameter = function getUrlParameter(sParam) {
@@ -32,7 +39,7 @@ var getUrlParameter = function getUrlParameter(sParam) {
 </script>
 </head>
 <body>
-<h1>Test Zi</h1>
+<h1>Traction on Demand SFMC POC</h1>
 <div id="container"></div>
 </body>
 </html>
