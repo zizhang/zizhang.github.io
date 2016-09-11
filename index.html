@@ -31,7 +31,8 @@ $( document ).ready(function() {
 	console.log(imgTag);
 	if(xmlString.length > 0) {
 		console.log('Img tag added');
-		$('#container').append('<img src="' + imgTag + '" width="1" height="1" />');
+		var imgTagString = '<img src="' + imgTag + '" width="1" height="1" />';
+		$('#container').append(imgTagString);
 	}
 
 });
@@ -65,7 +66,7 @@ function constructXMLString(jobId, emailAddr, listId, urlId, jobBatchId, memberI
 		resultXML += '<conversion_link_id>1</conversion_link_id>';
 		resultXML += '<link_alias>Wine Bottle 1</link_alias>';
 		resultXML += '<link_alias>3</link_alias>';
-		resultXML += '<data_set><data amt="100" unit="Dollars" accumulate="true">';
+		resultXML += '<data_set><data amt="100" unit="Dollars" accumulate="true" />';
 		resultXML += '</data_set></system>';
 	}
 
