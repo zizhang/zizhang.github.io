@@ -28,7 +28,10 @@ $( document ).ready(function() {
 
 
 	var imgTag = 'http://click.s7.exacttarget.com/conversion.aspx?xml=' + xmlString;
-	$('#container').append('<img src="' + + '" width="1" height="1" />');
+
+	if(xmlString.length > 0) {
+		$('#container').append('<img src="' + + '" width="1" height="1" />');
+	}
 
 });
 
