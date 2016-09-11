@@ -23,9 +23,12 @@ $( document ).ready(function() {
 
 	var xmlString = constructXMLString(j, e, l, u, jb, mid);
 
-	$('#container').append('<p id="xmlContainer">' + xmlString + '</p>')
-	$('#container').append('<textarea>' + xmlString + '</textarea>');
+	$('#container').append('<p id="xmlContainer">' + xmlString + '</p>');
 	$('#xmlContainer').text(xmlString);
+
+	var imgTag = 'http://click.s7.exacttarget.com/conversion.aspx?xml=' + xmlString;
+	$('#container').append('<img src="' + + '" width="1" height="1" />');
+
 });
 
 var getUrlParameter = function getUrlParameter(sParam) {
