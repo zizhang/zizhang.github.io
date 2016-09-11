@@ -23,7 +23,9 @@ $( document ).ready(function() {
 
 	var xmlString = constructXMLString(j, e, l, u, jb, mid);
 
+	$('#container').append('<p id="xmlContainer">' + xmlString + '</p>')
 	$('#container').append('<textarea>' + xmlString + '</textarea>');
+	$('#xmlContainer').text(xmlString);
 });
 
 var getUrlParameter = function getUrlParameter(sParam) {
