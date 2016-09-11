@@ -6,10 +6,11 @@
 
 <script type="text/javascript">
 $( document ).ready(function() {
-    console.log( "ready!" );
+    console.log("Ready!");
     var param1 = getUrlParameter('zi');
 	var param2 = getUrlParameter('zhang');
 
+	$('#container').append('<p>' + param1 + ' ' + param2 + '</p>');
 	console.log('1: ' + param1);
 	console.log('2: ' + param2);
 });
@@ -32,7 +33,6 @@ var getUrlParameter = function getUrlParameter(sParam) {
 </head>
 <body>
 <h1>Test Zi</h1>
-<button type="button"
-
+<div id="container"></div>
 </body>
 </html>
