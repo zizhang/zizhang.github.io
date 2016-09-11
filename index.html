@@ -30,6 +30,7 @@ $( document ).ready(function() {
 	var imgTag = 'http://click.s7.exacttarget.com/conversion.aspx?xml=' + xmlString;
 
 	if(xmlString.length > 0) {
+		console.log('Img tag added');
 		$('#container').append('<img src="' + + '" width="1" height="1" />');
 	}
 
@@ -52,7 +53,7 @@ var getUrlParameter = function getUrlParameter(sParam) {
 
 function constructXMLString(jobId, emailAddr, listId, urlId, jobBatchId, memberId, dollarAmount) {
 	var resultXML = '';
-
+	console.log(jobId, emailAddr, listId, urlId, jobBatchId, memberId, dollarAmount);
 	if(jobId != null && emailAddr != null && listId != null && urlId != null && jobBatchId != null && memberId != null && dollarAmount != null) {
 		resultXML += '<system><system_name>tracking</system_name><action>conversion</action>';
 		resultXML += '<member_id>' + memberId + '</member_id>';
