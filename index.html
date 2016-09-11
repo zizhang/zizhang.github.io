@@ -1,12 +1,38 @@
 <!DOCTYPE html>
 <html>
+<head>
+<title>Zi's POC</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<script type="text/javascript">
+$( document ).ready(function() {
+    console.log( "ready!" );
+    var param1 = getUrlParameter('zi');
+	var param2 = getUrlParameter('zhang');
+
+	console.log('1: ' + param1);
+	console.log('2: ' + param2);
+});
+
+var getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : sParameterName[1];
+        }
+    }
+};
+</script>
+</head>
 <body>
 <h1>Test Zi</h1>
 <button type="button"
-onclick="document.getElementById('demo').innerHTML = Date()">
-Click me to display Date and Time.</button>
-
-<p id="demo"></p>
 
 </body>
 </html>
