@@ -1,13 +1,130 @@
-<!-- Conversion Tracking Landing Page Sample -->
-<!DOCTYPE html>
+<!doctype html>
 <html>
 <head>
-<title>SFMC POC</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+ <meta charset="utf-8">
+ <title></title>
+ <meta name="description" content="">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+  <style>
+  #main {
+   margin: auto;
+    width: 50%;
+    padding: 10px;
+  }
+  </style>
+
+  <script type="text/javascript">
+    $( document ).ready(function() {
+      console.log( "ready!" );
+      
+      document.getElementById("submitBtn").addEventListener("click", function( event ) {
+        formSubmit();
+      }, false);
+    });
+
+    function formSubmit() {
+      console.log('submit');
+      var fname = encodeURIComponent($('#fname').val());
+      var lname = encodeURIComponent($('#lname').val());
+      var email = encodeURIComponent($('#email').val());
+      var phone = encodeURIComponent($('#phone').val());
+      var addr1 = encodeURIComponent($('#addr1').val());
+      var addr2 = encodeURIComponent($('#addr2').val());
+      var city = encodeURIComponent($('#city').val());
+      var state = encodeURIComponent($('#state').val());
+      var zip = encodeURIComponent($('#zip').val());
+      var country = encodeURIComponent($('#country').val());
+      var campId = encodeURIComponent($('#campId').val());
+
+      var sendURL = 'http://pages.s7.exacttarget.com/page.aspx?QS=472529ec60bdf32a4c83019e7ab25e149dc36193cb528b138061a3f6bd7cc7c3'
+      var params = 'fname=' + fname + '&lname=' + lname + '&email=' + email + '&phone=' + phone + '&addr1=' + addr1 + '&addr2=' + addr2 + '&city=' + city + '&state=' + state + '&zip=' + zip + '&country=' + country + '&campId=' + campId;
+      
+      console.log(params);
+      var resultUrl = sendURL + params;
+
+      var xhr = new XMLHttpRequest();
+      
+      xhr.open("POST", sendURL, true);
+      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+      
+      xhr.onloadend = function() {
+       console.log('response: ' + xhr.response);
+	console.log('request status: ' + xhr.status);
+        if(xhr.status == 200 && !xhr.response.includes("<title>Error</title>")) {
+         alert('Form submitted');
+         window.location.reload();
+        } else {
+         alert('Error: status=' + xhr.response);
+        }
+      }
+      
+      xhr.send(params);
+      
+    }
+  </script>
 </head>
 <body>
-<h1>SFMC POC</h1>
-<div id="container"></div>
+  <div id="main">
+    <p><b>   TEST SEARCH AND LOAD OF LEAD DATA TO SFDC</b></p>
+    <br />
+    <form>
+      <div class="col-md-6 form-group">
+        <label for="fname">First Name:</label>
+        <input type="text" class="form-control" id="fname">
+      </div>
+      <div class="col-md-6 form-group">
+        <label for="lname">Last Name:</label>
+        <input type="text" class="form-control" id="lname">
+      </div>
+      <div class="col-md-6 form-group">
+        <label for="email">Email address:</label>
+        <input type="text" class="form-control" id="email">
+      </div>
+      <div class="col-md-6 form-group">
+        <label for="phone">Phone:</label>
+        <input type="text" class="form-control" id="phone">
+      </div>
+      <div class="col-md-6 form-group">
+        <label for="addr1">Address 1:</label>
+        <input type="text" class="form-control" id="addr1">
+      </div>
+      <div class="col-md-6 form-group">
+        <label for="addr2">Address 2:</label>
+        <input type="text" class="form-control" id="addr2">
+      </div>
+      <div class="col-md-6 form-group">
+        <label for="city">City:</label>
+        <input type="text" class="form-control" id="city">
+      </div>
+      <div class="col-md-6 form-group">
+        <label for="state">Province: (Full name eg. British Columbia)</label>
+        <input type="text" class="form-control" id="state">
+      </div>
+      <div class="col-md-6 form-group">
+        <label for="zip">Post Code: (Canadian Format - eg V5A 0C2)</label>
+        <input type="text" class="form-control" id="zip">
+      </div>
+      <div class="col-md-6 form-group">
+        <label for="country">Country:</label>
+        <input type="text" class="form-control" id="country">
+      </div>
+      <div class="col-md-6 form-group">
+        <label for="campId">Campaign ID: (enter "Search Contact" to also search Contact object)</label>
+        <input type="text" class="form-control" id="campId">
+      </div>
+      <div class="col-md-12 form-group">
+        <input id="submitBtn" type="button" class="btn btn-default" value="Submit">
+      </div>
+    </form>
+  </div>
 </body>
 </html>
