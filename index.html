@@ -28,7 +28,7 @@
       
       document.getElementById("submitBtn").addEventListener("click", function( event ) {
         formSubmit1();
-        //formSubmit2();
+        formSubmit2();
       }, false);
     });
 
@@ -88,31 +88,30 @@
       var country = encodeURIComponent($('#country').val());
       var campId = encodeURIComponent($('#campId').val());
 
-      // form handler 1
-      var sendURL = 'https://pages.exacttarget.com/page.aspx?QS=5c591a8916642e73eadfcc55e8743a04f07df3b5d4334ae985046eaed428981b';
-      //var sendURL = 'https://pub.s1.exacttarget.com/l5c0dc2q4df';
+      // form handler 2
+      var sendURL = 'https://pages.exacttarget.com/page.aspx?QS=5c591a8916642e732455787692d70f53f62377613256aad273090638cf4af5c5';
       var params = 'fname=' + fname + '&lname=222' + lname + '&email=2222' + email + '&phone=' + phone + '&addr1=' + addr1 + '&addr2=' + addr2 + '&city=' + city + '&state=' + state + '&zip=' + zip + '&country=' + country + '&campId=' + campId;
       
       console.log(params);
       var resultUrl = sendURL + params;
 
-      var xhr = new XMLHttpRequest();
+      var xhr2 = new XMLHttpRequest();
       
-      xhr.open("POST", sendURL, true);
-      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+      xhr2.open("POST", sendURL, true);
+      xhr2.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
       
-      xhr.onloadend = function() {
-       console.log('response: ' + xhr.response);
-	console.log('request status: ' + xhr.status);
-        if(xhr.status == 200 && !xhr.response.includes("<title>Error</title>")) {
+      xhr2.onloadend = function() {
+       console.log('response: ' + xhr2.response);
+	console.log('request status: ' + xhr2.status);
+        if(xhr2.status == 200 && !xhr2.response.includes("<title>Error</title>")) {
          alert('Form1 submitted');
          window.location.reload();
         } else {
-         alert('Error1: status=' + xhr.response);
+         alert('Error1: status=' + xhr2.response);
         }
       }
       
-      xhr.send(params);
+      xhr2.send(params);
       
     }
   </script>
