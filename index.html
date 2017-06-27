@@ -76,11 +76,22 @@
 
     function formSubmit2() {
       console.log('submit2');
+      var fname = encodeURIComponent($('#fname').val());
+      var lname = encodeURIComponent($('#lname').val());
       var email = encodeURIComponent($('#email').val());
+      var phone = encodeURIComponent($('#phone').val());
+      var addr1 = encodeURIComponent($('#addr1').val());
+      var addr2 = encodeURIComponent($('#addr2').val());
+      var city = encodeURIComponent($('#city').val());
+      var state = encodeURIComponent($('#state').val());
+      var zip = encodeURIComponent($('#zip').val());
+      var country = encodeURIComponent($('#country').val());
+      var campId = encodeURIComponent($('#campId').val());
 
-      // form handler 2
-      var sendURL = 'https://pages.exacttarget.com/page.aspx?QS=5c591a8916642e732455787692d70f53f62377613256aad273090638cf4af5c5';
-      var params = '&email=' + email;
+      // form handler 1
+      var sendURL = 'https://pages.exacttarget.com/page.aspx?QS=5c591a8916642e73eadfcc55e8743a04f07df3b5d4334ae985046eaed428981b';
+      //var sendURL = 'https://pub.s1.exacttarget.com/l5c0dc2q4df';
+      var params = 'fname=' + fname + '&lname=222' + lname + '&email=2222' + email + '&phone=' + phone + '&addr1=' + addr1 + '&addr2=' + addr2 + '&city=' + city + '&state=' + state + '&zip=' + zip + '&country=' + country + '&campId=' + campId;
       
       console.log(params);
       var resultUrl = sendURL + params;
@@ -91,13 +102,13 @@
       xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
       
       xhr.onloadend = function() {
-        console.log('response: ' + xhr.response);
-		console.log('request status: ' + xhr.status);
+       console.log('response: ' + xhr.response);
+	console.log('request status: ' + xhr.status);
         if(xhr.status == 200 && !xhr.response.includes("<title>Error</title>")) {
-         alert('Form2 submitted');
+         alert('Form1 submitted');
          window.location.reload();
         } else {
-         alert('Error2: status=' + xhr.response);
+         alert('Error1: status=' + xhr.response);
         }
       }
       
