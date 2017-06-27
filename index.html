@@ -17,7 +17,7 @@
   <style>
   #main {
    margin: auto;
-    width: 25%;
+    width: 50%;
     padding: 10px;
   }
   </style>
@@ -27,12 +27,12 @@
       console.log( "ready!" );
       
       document.getElementById("submitBtn").addEventListener("click", function( event ) {
-        formSubmit();
+        formSubmit1();
       }, false);
     });
 
-    function formSubmit() {
-      console.log('submit');
+    function formSubmit1() {
+      console.log('submit1');
       var fname = encodeURIComponent($('#fname').val());
       var lname = encodeURIComponent($('#lname').val());
       var email = encodeURIComponent($('#email').val());
@@ -45,7 +45,8 @@
       var country = encodeURIComponent($('#country').val());
       var campId = encodeURIComponent($('#campId').val());
 
-      var sendURL = 'https://pub.s1.exacttarget.com/l5c0dc2q4df'
+      // form handler 1
+      var sendURL = 'http://pages.s7.exacttarget.com/page.aspx?QS=472529ec60bdf32a4c83019e7ab25e149dc36193cb528b138061a3f6bd7cc7c3'
       var params = 'fname=' + fname + '&lname=' + lname + '&email=' + email + '&phone=' + phone + '&addr1=' + addr1 + '&addr2=' + addr2 + '&city=' + city + '&state=' + state + '&zip=' + zip + '&country=' + country + '&campId=' + campId;
       
       console.log(params);
@@ -57,12 +58,44 @@
       xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
       
       xhr.onloadend = function() {
-       console.log('ziwei: ' + xhr.status);
-        if(xhr.status == 200) {
-         alert('Form submitted');
-            window.location.reload();
+       console.log('response: ' + xhr.response);
+	console.log('request status: ' + xhr.status);
+        if(xhr.status == 200 && !xhr.response.includes("<title>Error</title>")) {
+         alert('Form1 submitted');
+         window.location.reload();
         } else {
-         alert('Error: status=' + xhr.status);
+         alert('Error1: status=' + xhr.response);
+        }
+      }
+      
+      xhr.send(params);
+      
+    }
+
+    function formSubmit2() {
+      console.log('submit2');
+      var email = encodeURIComponent($('#email').val());
+
+      // form handler 2
+      var sendURL = 'https://pages.s7.exacttarget.com/page.aspx?QS=2e4c31a3756cb9409a2ddf24fa739244ffa510406c194b4542c16f5a6c868a4b'
+      var params = '&email=' + email;
+      
+      console.log(params);
+      var resultUrl = sendURL + params;
+
+      var xhr = new XMLHttpRequest();
+      
+      xhr.open("POST", sendURL, true);
+      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+      
+      xhr.onloadend = function() {
+        console.log('response: ' + xhr.response);
+		console.log('request status: ' + xhr.status);
+        if(xhr.status == 200 && !xhr.response.includes("<title>Error</title>")) {
+         alert('Form2 submitted');
+         window.location.reload();
+        } else {
+         alert('Error2: status=' + xhr.response);
         }
       }
       
@@ -73,6 +106,8 @@
 </head>
 <body>
   <div id="main">
+    <p><b>   TEST SEARCH AND LOAD OF LEAD DATA TO SFDC</b></p>
+    <br />
     <form>
       <div class="col-md-6 form-group">
         <label for="fname">First Name:</label>
@@ -103,11 +138,11 @@
         <input type="text" class="form-control" id="city">
       </div>
       <div class="col-md-6 form-group">
-        <label for="state">State:</label>
+        <label for="state">Province: (Full name eg. British Columbia)</label>
         <input type="text" class="form-control" id="state">
       </div>
       <div class="col-md-6 form-group">
-        <label for="zip">Zip Code:</label>
+        <label for="zip">Post Code: (Canadian Format - eg V5A 0C2)</label>
         <input type="text" class="form-control" id="zip">
       </div>
       <div class="col-md-6 form-group">
@@ -115,7 +150,7 @@
         <input type="text" class="form-control" id="country">
       </div>
       <div class="col-md-6 form-group">
-        <label for="campId">Campaign ID:</label>
+        <label for="campId">Campaign ID: (enter "Search Contact" to also search Contact object)</label>
         <input type="text" class="form-control" id="campId">
       </div>
       <div class="col-md-12 form-group">
