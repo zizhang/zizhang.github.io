@@ -101,8 +101,8 @@
       xhr2.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
       
       xhr2.onloadend = function() {
-       console.log('response: ' + xhr2.response);
-	console.log('request status: ' + xhr2.status);
+        console.log('response: ' + xhr2.response);
+		console.log('request status: ' + xhr2.status);
         if(xhr2.status == 200 && !xhr2.response.includes("<title>Error</title>")) {
          alert('Form1 submitted');
          window.location.reload();
