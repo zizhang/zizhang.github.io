@@ -17,7 +17,7 @@
   <style>
   #main {
    margin: auto;
-    width: 50%;
+    width: 25%;
     padding: 10px;
   }
   </style>
@@ -45,7 +45,7 @@
       var country = encodeURIComponent($('#country').val());
       var campId = encodeURIComponent($('#campId').val());
 
-      var sendURL = 'http://pages.s7.exacttarget.com/page.aspx?QS=472529ec60bdf32a4c83019e7ab25e149dc36193cb528b138061a3f6bd7cc7c3'
+      var sendURL = 'https://pub.s1.exacttarget.com/l5c0dc2q4df'
       var params = 'fname=' + fname + '&lname=' + lname + '&email=' + email + '&phone=' + phone + '&addr1=' + addr1 + '&addr2=' + addr2 + '&city=' + city + '&state=' + state + '&zip=' + zip + '&country=' + country + '&campId=' + campId;
       
       console.log(params);
@@ -57,13 +57,12 @@
       xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
       
       xhr.onloadend = function() {
-       console.log('response: ' + xhr.response);
-	console.log('request status: ' + xhr.status);
-        if(xhr.status == 200 && !xhr.response.includes("<title>Error</title>")) {
+       console.log('ziwei: ' + xhr.status);
+        if(xhr.status == 200) {
          alert('Form submitted');
-         window.location.reload();
+            window.location.reload();
         } else {
-         alert('Error: status=' + xhr.response);
+         alert('Error: status=' + xhr.status);
         }
       }
       
@@ -74,8 +73,6 @@
 </head>
 <body>
   <div id="main">
-    <p><b>   TEST SEARCH AND LOAD OF LEAD DATA TO SFDC</b></p>
-    <br />
     <form>
       <div class="col-md-6 form-group">
         <label for="fname">First Name:</label>
@@ -106,11 +103,11 @@
         <input type="text" class="form-control" id="city">
       </div>
       <div class="col-md-6 form-group">
-        <label for="state">Province: (Full name eg. British Columbia)</label>
+        <label for="state">State:</label>
         <input type="text" class="form-control" id="state">
       </div>
       <div class="col-md-6 form-group">
-        <label for="zip">Post Code: (Canadian Format - eg V5A 0C2)</label>
+        <label for="zip">Zip Code:</label>
         <input type="text" class="form-control" id="zip">
       </div>
       <div class="col-md-6 form-group">
@@ -118,7 +115,7 @@
         <input type="text" class="form-control" id="country">
       </div>
       <div class="col-md-6 form-group">
-        <label for="campId">Campaign ID: (enter "Search Contact" to also search Contact object)</label>
+        <label for="campId">Campaign ID:</label>
         <input type="text" class="form-control" id="campId">
       </div>
       <div class="col-md-12 form-group">
