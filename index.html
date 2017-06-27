@@ -2,83 +2,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Traction on Demand SFMC POC</title>
+<title>SFMC POC</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
-<script type="text/javascript">
-// Conversion Tracking Documentation link: https://help.marketingcloud.com/en/documentation/exacttarget/tracking/conversion_tracking/
-$( document ).ready(function() {
-    console.log("Ready!");
-    var j = getUrlParameter('j');
-	var e = getUrlParameter('e');
-	var l = getUrlParameter('l');
-	var u = getUrlParameter('u');
-	var jb = getUrlParameter('jb');
-	var mid = getUrlParameter('mid');
-
-	$('#container').append('<p>j = ' + j + '</p>');
-	$('#container').append('<p>e = ' + e + '</p>');
-	$('#container').append('<p>l = ' + l + '</p>');
-	$('#container').append('<p>u = ' + u + '</p>');
-	$('#container').append('<p>jb = ' + jb + '</p>');
-	$('#container').append('<p>mid = ' + mid + '</p>');
-
-	var xmlString = constructXMLString(j, e, l, u, jb, mid, 100);
-
-	// debugging on page
-	$('#container').append('<p id="xmlContainer"></p>');
-	$('#xmlContainer').text(xmlString);
-
-
-	// Img Tag to send data to salesforce marketing cloud
-	var imgTag = 'http://click.s7.exacttarget.com/conversion.aspx?xml=' + xmlString;
-	if(xmlString.length > 0) { // If condition true, add 1 pixel image to page
-		console.log('Img tag added');
-		$('#container').append("<img src='" + imgTag + "'" + ' width="1" height="1" />');
-	}
-
-});
-
-var getUrlParameter = function getUrlParameter(sParam) {
-    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
-        sURLVariables = sPageURL.split('&'),
-        sParameterName,
-        i;
-
-    for (i = 0; i < sURLVariables.length; i++) {
-        sParameterName = sURLVariables[i].split('=');
-
-        if (sParameterName[0] === sParam) {
-            return sParameterName[1] === undefined ? true : sParameterName[1];
-        }
-    }
-};
-
-function constructXMLString(jobId, emailAddr, listId, urlId, jobBatchId, memberId, dollarAmount) {
-	var resultXML = '';
-	console.log(jobId, emailAddr, listId, urlId, jobBatchId, memberId, dollarAmount);
-	if(jobId != null && emailAddr != null && listId != null && urlId != null && jobBatchId != null && memberId != null && dollarAmount != null) {
-		resultXML += '<system><system_name>tracking</system_name><action>conversion</action>';
-		resultXML += '<member_id>' + memberId + '</member_id>';
-		resultXML += '<job_id>' + jobId + '</job_id>';
-		resultXML += '<email>' + emailAddr + '</email>';
-		resultXML += '<list>' + listId + '</list>';
-		resultXML += '<original_link_id>' + urlId + '</original_link_id>';
-		resultXML += '<BatchID>' + jobBatchId + '</BatchID>';
-		// Values below have been hardcoded. Will have to be dynamically populated. Refer to documentation link at top
-		resultXML += '<conversion_link_id>1</conversion_link_id>';
-		resultXML += '<link_alias>Wine Bottle 1</link_alias>';
-		resultXML += '<display_order>3</display_order>';
-		resultXML += '<data_set><data amt="100" unit="Dollars" accumulate="true" /></data_set></system>';
-	}
-
-	return resultXML;
-}
-
-</script>
 </head>
 <body>
-<h1>Traction on Demand SFMC POC</h1>
+<h1>SFMC POC</h1>
 <div id="container"></div>
 </body>
 </html>
