@@ -28,7 +28,7 @@
       
       document.getElementById("submitBtn").addEventListener("click", function( event ) {
         formSubmit1();
-        formSubmit2();
+        //formSubmit2();
       }, false);
     });
 
@@ -61,8 +61,9 @@
        console.log('response: ' + xhr.response);
 	console.log('request status: ' + xhr.status);
         if(xhr.status == 200 && !xhr.response.includes("<title>Error</title>")) {
+         formSubmit2();
          alert('Form1 submitted');
-         window.location.reload();
+         //window.location.reload();
         } else {
          alert('Error1: status=' + xhr.response);
         }
