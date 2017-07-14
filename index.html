@@ -92,7 +92,7 @@
       xhr2.onloadend = function() {
         //console.log('response: ' + !xhr2.response.includes("<title>Error</title>"));
 		    //console.log('request status: ' + xhr2.status);
-        if(xhr2.status == 200 && !xhr2.response.includes("<title>Error</title>")) {
+        if(xhr2.status == 200) {
           console.log('Form2 submitted');
          alert('Form2 submitted');
          //window.location.reload(false);
