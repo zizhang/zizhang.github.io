@@ -62,8 +62,8 @@
 	     //console.log('request status: ' + xhr.status);
         if(xhr.status == 200 && !xhr.response.includes("<title>Error</title>")) {
          formSubmit2();
-         console.log('Form1 submitter');
-         //alert('Form1 submitted');
+         console.log('Form1 submitted');
+         alert('Form1 submitted');
          //window.location.reload();
         } else {
          alert('Error1: status=' + xhr.response);
@@ -82,7 +82,7 @@
       var sendURL = 'https://pages.s7.exacttarget.com/page.aspx?QS=2e4c31a3756cb940e55c022091946a5c8c61d6e38aacc0daf3e03a717e8d9920';
       var params = 'email=' + email;
       
-      console.log(params);
+      //console.log(params);
 
       var xhr2 = new XMLHttpRequest();
       
@@ -90,11 +90,11 @@
       xhr2.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
       
       xhr2.onloadend = function() {
-        console.log('response: ' + !xhr2.response.includes("<title>Error</title>"));
-		    console.log('request status: ' + xhr2.status);
+        //console.log('response: ' + !xhr2.response.includes("<title>Error</title>"));
+		    //console.log('request status: ' + xhr2.status);
         if(xhr2.status == 200 && !xhr2.response.includes("<title>Error</title>")) {
           console.log('Form2 submitted');
-         //alert('Form2 submitted');
+         alert('Form2 submitted');
          //window.location.reload(false);
          window.location.href = window.location.href
         } else {
