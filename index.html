@@ -93,7 +93,7 @@
 		    console.log('request status: ' + xhr2.status);
         if(xhr2.status == 200 && !xhr2.response.includes("<title>Error</title>")) {
          alert('Form2 submitted');
-         window.location.reload();
+         window.location.reload(false);
         } else {
          alert('Error2: status=' + xhr2.response);
         }
