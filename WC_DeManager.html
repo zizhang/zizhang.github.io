@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+ <meta charset="utf-8">
+ <title></title>
+ <meta name="description" content="">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+</head>
+<body>
+  <div id="main">
+    <form action="https://cl.exct.net/DEManager.aspx" name="subscribeForm" method="post">
+            <input type="hidden" name="_clientID" value="10834387" />
+            <input type="hidden" name="_deExternalKey" value="WebCollectPOC" />
+            <input type="hidden" name="_action" value="add" />
+            <input type="hidden" name="_returnXML" value="0" />
+            <input type="hidden" name="_successURL" value="http://google.ca" />
+            <input type="hidden" name="_errorURL" value="http://example.com/Failed" />
+            Email: <input type="text" name="EmailAddress"><br />
+            First Name: <input type="text" name="FirstName"><br />
+            Last Name: <input type="text" name="LastName"><br />
+            <input type="submit" value="Submit">
+        </form>
+  </div>
+</body>
+</html>
