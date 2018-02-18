@@ -14,121 +14,32 @@
   <!-- Latest compiled JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   
-  <style>
-  #main {
-   margin: auto;
-    width: 50%;
-    padding: 10px;
-  }
-  </style>
-
-  <script type="text/javascript">
-    $( document ).ready(function() {
-      console.log( "ready!" );
-      
-      document.getElementById("submitBtn").addEventListener("click", function( event ) {
-        formSubmit1();
-        //formSubmit2();
-      }, false);
-    });
-
-    function formSubmit1() {
-      console.log('submit1');
-      var fname = encodeURIComponent($('#fname').val());
-      var lname = encodeURIComponent($('#lname').val());
-      var email = encodeURIComponent($('#email').val());
-      var phone = encodeURIComponent($('#phone').val());
-      var addr1 = encodeURIComponent($('#addr1').val());
-      var addr2 = encodeURIComponent($('#addr2').val());
-      var city = encodeURIComponent($('#city').val());
-      var state = encodeURIComponent($('#state').val());
-      var zip = encodeURIComponent($('#zip').val());
-      var country = encodeURIComponent($('#country').val());
-      var campId = encodeURIComponent($('#campId').val());
-
-      // form handler 1
-      var sendURL = 'https://cl.exct.net/DEManager.aspx';
-      var params = 'FirstName=' + fname + '&LastName=' + lname + '&EmailAddress=' + email + '&_clientID=10834387' + '&_deExternalKey=WebCollectPOC' + '&_action=add' + '&_returnXML=0';
-      
-      console.log(params);
-
-      var xhr = new XMLHttpRequest();
-      
-      xhr.open("POST", sendURL, true);
-      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-      
-      xhr.onloadend = function() {
-       //console.log('response: ' + xhr.response);
-       //console.log('request status: ' + xhr.status);
-        if(xhr.status == 200 && !xhr.response.includes("<title>Error</title>")) {
-         //formSubmit2();
-         console.log('Form1 submitted');
-         //alert('Form1 submitted');
-         //window.location.reload();
-        } else {
-         alert('Error1: status=' + xhr.response);
-        }
-      }
-      
-      xhr.send(params);
-      
-    }
-
-    function formSubmit2() {
-      console.log('submit2');
-      var email = encodeURIComponent($('#email').val());
-
-      // form handler 2
-      var sendURL = 'https://pages.s7.exacttarget.com/page.aspx?QS=2e4c31a3756cb940e55c022091946a5c8c61d6e38aacc0daf3e03a717e8d9920';
-      var params = 'email=' + email;
-      
-      //console.log(params);
-
-      var xhr2 = new XMLHttpRequest();
-      
-      xhr2.open("POST", sendURL, true);
-      xhr2.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-      
-      xhr2.onloadend = function() {
-        //console.log('response: ' + !xhr2.response.includes("<title>Error</title>"));
-        //console.log('request status: ' + xhr2.status);
-        if(xhr2.status == 200 && !xhr2.response.includes("<title>Error</title>")) {
-          console.log('Form2 submitted');
-         //alert('Form2 submitted');
-         //window.location.reload(false);
-         //window.location.href = window.location.href
-         window.location = "https://pages.s7.exacttarget.com/page.aspx?QS=2e4c31a3756cb940fb8c54dfbc5e75fbaad57ae60d6c987e1e6ff46884b49df9";
-        } else {
-         alert('Error2: status=' + xhr2.response);
-        }
-      }
-      
-      xhr2.send(params);
-      
-    }
-  </script>
 </head>
 <body>
   <div id="main">
-    <p><b>   TEST SEARCH AND LOAD OF LEAD DATA TO SFDC</b></p>
-    <br />
-    <form>
-      <div class="col-md-6 form-group">
-        <label for="fname">First Name:</label>
-        <input type="text" class="form-control" id="fname">
-      </div>
-      <div class="col-md-6 form-group">
-        <label for="lname">Last Name:</label>
-        <input type="text" class="form-control" id="lname">
-      </div>
-      <div class="col-md-6 form-group">
-        <label for="email">Email address:</label>
-        <input type="text" class="form-control" id="email">
-      </div>
-      <div class="col-md-12 form-group">
-        <input id="submitBtn" type="button" class="btn btn-default" value="Submit">
-      </div>
-    </form>
+    <form action="https://cl.exct.net/DEManager.aspx" name="subscribeForm" method="post">
+            <input type="hidden" name="_clientID" value="10834387" />
+            <input type="hidden" name="_deExternalKey" value="WebCollectPOC" />
+            <input type="hidden" name="_action" value="add" />
+            <input type="hidden" name="_returnXML" value="0" />
+            <input type="hidden" name="_successURL" value="http://google.ca" />
+            <input type="hidden" name="_errorURL" value="http://example.com/Failed" />
+            <div class="col-md-6 form-group">
+              <label for="FirstName">First Name:</label>
+              <input type="text" class="form-control" id="FirstName">
+            </div>
+            <div class="col-md-6 form-group">
+              <label for="LastName">Last Name:</label>
+              <input type="text" class="form-control" id="LastName">
+            </div>
+            <div class="col-md-6 form-group">
+              <label for="EmailAddress">Email address:</label>
+              <input type="text" class="form-control" id="EmailAddress">
+            </div>
+            <div class="col-md-12 form-group">
+              <input id="submitBtn" type="button" class="btn btn-default" value="Submit">
+            </div>
+        </form>
   </div>
 </body>
 </html>
