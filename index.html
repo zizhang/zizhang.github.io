@@ -29,7 +29,29 @@
         <h3>Modal header</h3>
       </div>
       <div class="modal-body">
-        <p>One fine body…</p>
+        <form action="https://cl.exct.net/DEManager.aspx" name="subscribeForm" method="post">
+            <input type="hidden" name="_clientID" value="10834387" />
+            <input type="hidden" name="_deExternalKey" value="WebCollectPOC" />
+            <input type="hidden" name="_action" value="add" />
+            <input type="hidden" name="_returnXML" value="0" />
+            <input type="hidden" name="_successURL" value="http://google.ca" />
+            <input type="hidden" name="_errorURL" value="http://example.com/Failed" />
+            <div class="col-md-6 form-group">
+              <label for="FirstName">First Name:</label>
+              <input type="text" class="form-control" id="FirstName">
+            </div>
+            <div class="col-md-6 form-group">
+              <label for="LastName">Last Name:</label>
+              <input type="text" class="form-control" id="LastName">
+            </div>
+            <div class="col-md-6 form-group">
+              <label for="EmailAddress">Email address:</label>
+              <input type="text" class="form-control" id="EmailAddress">
+            </div>
+            <div class="col-md-12 form-group">
+              <input id="submitBtn" type="button" class="btn btn-default" value="Submit">
+            </div>
+        </form>
       </div>
       <div class="modal-footer">
         <a href="#" class="btn">Close</a>
