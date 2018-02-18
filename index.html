@@ -20,6 +20,14 @@
     }
   </style>
 
+  <script type="text/javascript">
+    function test() {
+      console.log("submit");
+      event.preventDefault();
+    }
+
+  </script>
+
 </head>
 <body>
   <!-- Trigger the modal with a button -->
@@ -36,7 +44,7 @@
         <h4 class="modal-title">DEManager Sign Up</h4>
       </div>
       <div class="modal-body">
-        <form action="https://cl.exct.net/DEManager.aspx" name="subscribeForm" method="post">
+        <form action="https://cl.exct.net/DEManager.aspx" name="subscribeForm" method="post" onsubmit="return test()">
             <input type="hidden" name="_clientID" value="10834387" />
             <input type="hidden" name="_deExternalKey" value="WebCollectPOC" />
             <input type="hidden" name="_action" value="add" />
