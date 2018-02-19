@@ -45,7 +45,7 @@
         <h4 class="modal-title">DEManager Sign Up</h4>
       </div>
       <div class="modal-body">
-        <form action="https://cl.exct.net/DEManager.aspx" name="subscribeForm" method="post" onsubmit="return test()">
+        <form action="https://cl.exct.net/DEManager.aspx" name="subscribeForm" method="post">
             <input type="hidden" name="_clientID" value="10834387" />
             <input type="hidden" name="_deExternalKey" value="WebCollectPOC" />
             <input type="hidden" name="_action" value="add" />
@@ -88,24 +88,29 @@
         <h4 class="modal-title">DEManager Sign Up</h4>
       </div>
       <div class="modal-body">
-        <form action="https://cl.exct.net/DEManager.aspx" name="subscribeForm" method="post" onsubmit="return test()">
-            <input type="hidden" name="_clientID" value="10834387" />
-            <input type="hidden" name="_deExternalKey" value="WebCollectPOC" />
-            <input type="hidden" name="_action" value="add" />
-            <input type="hidden" name="_returnXML" value="0" />
-            <input type="hidden" name="_successURL" value="https://zizhang.github.io/" />
-            <input type="hidden" name="_errorURL" value="http://example.com/Failed" />
+        <form action="https://cl.exct.net/DEManager.aspx" name="subscribeForm" method="post">
+            <input type=hidden name="thx" value="https://zizhang.github.io/"> 
+            <input type=hidden name="err" value="http://example.com/Failed"> 
+            <input type=hidden name="SubAction" value="sub_add_update"> 
+            <input type=hidden name="MID" value="10834387">
+            <input type=hidden name="StoreA" value="Test1">
             <div class="col-md-6 form-group">
-              <label for="FirstName">First Name:</label>
-              <input type="text" class="form-control" id="FirstName" name="FirstName">
+              <label for="Name">Name:</label>
+              <input type="text" class="form-control" id="Name" name="Name">
             </div>
             <div class="col-md-6 form-group">
-              <label for="LastName">Last Name:</label>
-              <input type="text" class="form-control" id="LastName" name="LastName">
+              <label for="Email Address">Email:</label>
+              <input type="text" class="form-control" id="Email Address" name="Email Address">
             </div>
             <div class="col-md-6 form-group">
-              <label for="EmailAddress">Email address:</label>
-              <input type="text" class="form-control" id="EmailAddress" name="EmailAddress">
+              <label for="StoreA">Custom Attribute (StoreA):</label>
+              <input type="text" class="form-control" id="StoreA" name="StoreA">
+            </div>
+            <div class="col-md-6 form-group">
+              <input type="checkbox" name=lid value="39763671">
+              DJTestList
+              <input type="checkbox" name=lid value="39764230 ">
+              DJTestList2
             </div>
             <div class="col-md-12 form-group">
               <input type="submit" value="Submit">
