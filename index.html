@@ -38,6 +38,7 @@
       <!-- Trigger the modal with a button -->
       <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#DEModal">Data Extension Modal</button>
       <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#ListModal">Lists Modal</button>
+      <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#LBWebhook">LB Webhook</button>
     </div>
   </div>
 </div>
@@ -119,6 +120,43 @@
               <label class="custom-control-label" for="lid">DJTestList</label>
               <input type="checkbox" class="custom-control-input" id="lid" name="lid" value="39764230">
               <label class="custom-control-label" for="lid">DJTestList2</label>
+            </div>
+            <div class="col-md-12 form-group">
+              <input type="submit" value="Submit">
+            </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Modal -->
+<div id="LBWebhook" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Webhook Lead Capture</h4>
+      </div>
+      <div class="modal-body">
+        <form action="https://leadsbridge.com/app/webhook/f1de6e9ac0bd6ccf6dcbc65a1ece4c32" name="subscribeForm" method="post">
+            <div class="col-md-6 form-group">
+              <label for="first_name">First Name:</label>
+              <input type="text" class="form-control" id="first_name" name="first_name">
+            </div>
+            <div class="col-md-6 form-group">
+              <label for="LastName">Last Name:</label>
+              <input type="text" class="form-control" id="LastName" name="LastName">
+            </div>
+            <div class="col-md-6 form-group">
+              <label for="last_name">Email address:</label>
+              <input type="text" class="form-control" id="last_name" name="last_name">
             </div>
             <div class="col-md-12 form-group">
               <input type="submit" value="Submit">
